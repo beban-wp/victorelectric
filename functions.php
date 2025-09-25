@@ -28,7 +28,8 @@ add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css', 10 );
 // Include WooCommerce Account Features
 require_once get_stylesheet_directory() . '/inc/woocommerce/account/account-navigation.php';
 // Include WooCommerce Orders Features
-require_once get_stylesheet_directory() . '/inc/woocommerce/orders/orders-history.php';
+require_once get_stylesheet_directory() . '/inc/woocommerce/orders/order-history/orders-history.php';
+require_once get_stylesheet_directory() . '/inc/woocommerce/orders/order-history/orders-ajax.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/order-meta-box.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/custom-order-status.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/payment-type-column.php';
@@ -57,6 +58,17 @@ require_once get_stylesheet_directory() . '/inc/utils/checkout-progress.php';
 
 // Include ripple effect utility
 require_once get_stylesheet_directory() . '/inc/utils/ripple-effect.php';
+
+// Include shipping methods display
+// require_once get_stylesheet_directory() . '/inc/woocommerce/checkout/shipping-methods-display.php';
+
+// تست مستقیم در functions.php
+// add_action('woocommerce_checkout_before_order_review', 'beban_direct_shipping_test', 1);
+// function beban_direct_shipping_test() {
+//     if (is_checkout()) {
+//         echo '<div style="background: #00ff00; color: black; padding: 10px; margin: 10px 0; border: 2px solid #000;">تست مستقیم: فایل functions.php کار می‌کند</div>';
+//     }
+// }
 
 // Include Access Control (اول باید لود شود)
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/manual-order/access-control.php';
