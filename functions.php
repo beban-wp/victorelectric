@@ -33,7 +33,7 @@ require_once get_stylesheet_directory() . '/inc/woocommerce/orders/order-history
 
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/custom-order-status.php';
 
-require_once get_stylesheet_directory() . '/inc/woocommerce/orders/list-latest-orders.php';
+require_once get_stylesheet_directory() . '/inc/woocommerce/account/list-latest-orders.php';
 
 
 // Include installment orders tab - Core functions first
@@ -50,14 +50,13 @@ require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-p
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-payment/frontend/installment-orders-helpers.php';
 
 // Include second installment payment handler
-// require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-payment/second-installment-handler.php';
-require_once get_stylesheet_directory() . '/inc/woocommerce/orders/thank-you-shortcode.php';
+require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-payment/second-installment-handler.php';
+require_once get_stylesheet_directory() . '/inc/woocommerce/thankyou/thank-you-shortcode.php';
 
 // Include WooCommerce Products Features
-require_once get_stylesheet_directory() . '/inc/woocommerce/products/stock-notice.php';
+// require_once get_stylesheet_directory() . '/inc/woocommerce/products/stock-notice.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/products/suggested-products-dashboard.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/products/hide-variations.php';
-// require_once get_stylesheet_directory() . '/inc/woocommerce/products/cart-features.php';
 
 // Include WooCommerce Cart Features
 require_once get_stylesheet_directory() . '/inc/woocommerce/cart/cart-count-shortcode.php';
@@ -72,6 +71,9 @@ require_once get_stylesheet_directory() . '/inc/utils/checkout-progress.php';
 // Include ripple effect utility
 require_once get_stylesheet_directory() . '/inc/utils/ripple-effect.php';
 
+// Include asset manager
+require_once get_stylesheet_directory() . '/inc/utils/asset-manager.php';
+
 // Include shipping methods display
 // require_once get_stylesheet_directory() . '/inc/woocommerce/checkout/shipping-methods-display.php';
 
@@ -85,25 +87,6 @@ require_once get_stylesheet_directory() . '/inc/woocommerce/orders/manual-order/
 // Include Special Orders Admin
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/manual-order/special-orders-admin.php';
 
-// Register Custom Order Status for Manual Orders
-function register_manual_order_status() {
-    register_post_status('wc-special-payment', array(
-        'label'                     => 'پرداخت خاص',
-        'public'                    => true,
-        'exclude_from_search'       => false,
-        'show_in_admin_all_list'    => true,
-        'show_in_admin_status_list' => true,
-        'label_count'               => _n_noop('پرداخت خاص (%s)', 'پرداخت خاص (%s)')
-    ));
-}
-add_action('init', 'register_manual_order_status');
-
-// Add Custom Order Status to WooCommerce
-function add_manual_order_status_to_woocommerce($order_statuses) {
-    $order_statuses['wc-special-payment'] = 'پرداخت خاص';
-    return $order_statuses;
-}
-add_filter('wc_order_statuses', 'add_manual_order_status_to_woocommerce');
 
 
 
