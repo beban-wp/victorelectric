@@ -50,13 +50,14 @@ require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-p
 require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-payment/frontend/installment-orders-helpers.php';
 
 // Include second installment payment handler
-require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-payment/second-installment-handler.php';
+// require_once get_stylesheet_directory() . '/inc/woocommerce/orders/installment-payment/second-installment-handler.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/thankyou/thank-you-shortcode.php';
 
 // Include WooCommerce Products Features
 // require_once get_stylesheet_directory() . '/inc/woocommerce/products/stock-notice.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/products/suggested-products-dashboard.php';
 require_once get_stylesheet_directory() . '/inc/woocommerce/products/hide-variations.php';
+require_once get_stylesheet_directory() . '/inc/woocommerce/products/disable-installment-option.php';
 
 // Include WooCommerce Cart Features
 require_once get_stylesheet_directory() . '/inc/woocommerce/cart/cart-count-shortcode.php';
